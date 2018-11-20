@@ -1,0 +1,35 @@
+{
+  "store_name": "GreenFish Digital Store",
+  "store_slug": "greenfishdigital-stripe-store",
+  "api_key": "pk_test_A57tOtING8ZjvlAVWwsoR00g",
+  "colors": {
+    "primary": {
+      "main": "#FF6A64",
+      "dark": "#BF4F4B",
+      "contrastText": "#FFF"
+    },
+    "secondary": {
+      "main": "#74EBD5"
+    }
+  },
+  "products": [
+    {
+      "name": "Single Landing Page",
+      "url": "single-landing-page",
+      "stripe_id": "prod_E0TBBFfCy4S5EG",
+      "price": 600,
+      "description": "This is a service for company who wants to develop a single landing page to generate leads.",
+      "photos": ["sample1.png", "sample2.jpg"],
+      "details": [
+        "These are details that get rendered as bullet points",
+        "Useful for short + sweet info"
+      ],
+      "variants": [
+        {
+          "name": "metadata",
+          "options": [{ "label": "option 1" }, { "label": "option 2" }]
+        }
+      ]
+    }
+  ]
+}
