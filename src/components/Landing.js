@@ -18,22 +18,21 @@ const Hero = styled.div`
 `;
 
 class Landing extends Component {
-  
   render() {
     const { config } = this.props;
     return (
       <PageWrapper>
-        <Paper style={{ padding: "40px" }}>
+        <Paper style={{ padding: '40px' }}>
           <Hero>
-            <div style={{ display: "inline-block", maxWidth: "80%"}}>
+            <div style={{ display: 'inline-block', maxWidth: '80%' }}>
               <p>intro your site here!</p>
             </div>
           </Hero>
-          <Divider style={{ margin: "40px 0" }}/>
+          <Divider style={{ margin: '40px 0' }} />
           <ProductList config={config} />
         </Paper>
       </PageWrapper>
     );
   }
-};
+}
 export default Landing;

@@ -1,12 +1,12 @@
-const result = require('dotenv').config({path: 'config.env'});
+const result = require('dotenv').config({ path: 'config.env' });
 const express = require('express');
 const session = require('express-session');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const path = require('path');
-const stripe = require("stripe")(process.env.STRIPE_KEY);
-const app = module.exports = express();
+const stripe = require('stripe')(process.env.STRIPE_KEY);
+const app = (module.exports = express());
 
 app.use(helmet());
 app.use(cookieParser());
@@ -18,34 +18,32 @@ var sess = {
     secure: false
   },
   resave: false,
-  saveUninitialized: true,
-}
- 
+  saveUninitialized: true
+};
+
 if (app.get('env') === 'production') {
   app.set('trust proxy', 1);
   sess.cookie.secure = true;
 }
- 
-app.use(session(sess))
+
+app.use(session(sess));
 
 if (result.error) throw result.error;
-require( __dirname + '/orders.js');
-require( __dirname + '/admin.js');
+require(__dirname + '/orders.js');
+require(__dirname + '/admin.js');
 
 app.use(bodyParser.json());
 
 app.get('/product-info/:id', function(req, res) {
-  stripe.skus.list({product : req.params.id}, 
-    function(err, product){
-      err ? res.status(500).send(err) : res.json(product);
-    });
+  stripe.skus.list({ product: req.params.id }, function(err, product) {
+    err ? res.status(500).send(err) : res.json(product);
+  });
 });
 
 app.get('/product-info/', function(req, res) {
-  stripe.skus.list(
-    function(err, skus){
-      err ? res.status(500).send(err) : res.json(skus.data);
-    });
+  stripe.skus.list(function(err, skus) {
+    err ? res.status(500).send(err) : res.json(skus.data);
+  });
 });
 
 app.use(express.static(path.join(__dirname, '..', 'build')));
@@ -55,5 +53,5 @@ app.get('*', (req, res) => {
 });
 
 app.listen(5000, function() {
-  console.log("Listening on port 5000!");
+  console.log('Listening on port 5000!');
 });

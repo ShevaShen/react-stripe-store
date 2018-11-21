@@ -17,7 +17,6 @@
       "name": "Single Landing Page",
       "url": "single-landing-page",
       "stripe_id": "prod_E0TBBFfCy4S5EG",
-      "price": 600,
       "description": "This is a service for company who wants to develop a single landing page to generate leads.",
       "photos": ["sample1.png", "sample2.jpg"],
       "details": [
